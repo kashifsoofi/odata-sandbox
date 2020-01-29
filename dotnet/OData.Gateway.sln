@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OData.Gateway.Api", "OData.Gateway.Api\OData.Gateway.Api.csproj", "{D2F33D01-D54B-4DE9-A630-AC15F852635E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2F33D01-D54B-4DE9-A630-AC15F852635E}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{D2F33D01-D54B-4DE9-A630-AC15F852635E}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{D2F33D01-D54B-4DE9-A630-AC15F852635E}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{D2F33D01-D54B-4DE9-A630-AC15F852635E}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
