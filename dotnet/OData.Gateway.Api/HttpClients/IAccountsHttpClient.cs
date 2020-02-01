@@ -8,5 +8,6 @@ namespace OData.Gateway.Api.HttpClients
     public interface IAccountsHtpClient
     {
         Task<IEnumerable<User>> GetUsers();
+        Task<User> GetUser(int id);
     }
 }

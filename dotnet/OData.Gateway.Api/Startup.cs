@@ -35,8 +35,7 @@ namespace OData.Gateway.Api
             services.AddOData();
 
             services.AddSingleton<IAccountsService, AccountsService>();
-            services.AddSingleton<IAccountsHtpClient, AccountsHtpClient>();
-            services.AddHttpClient<AccountsHtpClient>().AddTypedClient<IAccountsHtpClient>();
+            services.AddHttpClient<IAccountsHtpClient, AccountsHtpClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +67,7 @@ namespace OData.Gateway.Api
         private IEdmModel GetEdmModel()
         {
             var odataBuilder = new ODataConventionModelBuilder();
-            odataBuilder.EntitySet<Account>("Account");
+            odataBuilder.EntitySet<Account>("Accounts");
 
             return odataBuilder.GetEdmModel();
         }

@@ -26,5 +26,14 @@ namespace OData.Gateway.Api.HttpClients
             using var responseStream = await response.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<IEnumerable<User>>(responseStream);
         }
+
+        public async Task<User> GetUser(int id)
+        {
+            var response = await Client.GetAsync($"/users/{id}");
+            response.EnsureSuccessStatusCode();
+
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<User>(responseStream);
+        }
     }
 }

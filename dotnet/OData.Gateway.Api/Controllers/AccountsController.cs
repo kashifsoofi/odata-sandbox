@@ -8,9 +8,7 @@ using OData.Gateway.Api.Services;
 
 namespace OData.Gateway.Api.Controllers
 {
-    [ApiController]
-    [Route("v1/[controller]")]
-    public class AccountsController : ControllerBase
+    public class AccountsController : ODataController
     {
         private readonly ILogger<AccountsController> _logger;
 
@@ -22,7 +20,6 @@ namespace OData.Gateway.Api.Controllers
             _accountsService = accountsService;
         }
 
-        [HttpGet]
         [EnableQuery()]
         public async Task<IActionResult> Get()
         {
@@ -31,12 +28,11 @@ namespace OData.Gateway.Api.Controllers
             return Ok(accounts.ToList());
         }
 
-        [HttpGet]
         [EnableQuery()]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(int key)
         {
-            _logger.LogInformation($"Get method called for account id:{id}");
-            var account = _accountsService.Get(id);
+            _logger.LogInformation($"Get method called for account id:{key}");
+            var account = await _accountsService.Get(key);
             return Ok(account);
         }
     }

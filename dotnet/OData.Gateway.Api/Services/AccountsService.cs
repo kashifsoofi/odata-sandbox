@@ -16,9 +16,15 @@ namespace OData.Gateway.Api.Services
             _accountsHtpClient = accountsHtpClient;
         }
 
-        public Account Get(Guid id)
+        public async Task<Account> Get(int id)
         {
-            throw new NotImplementedException();
+            var user = await _accountsHtpClient.GetUser(id);
+            return new Account
+            {
+                Id = user.Id,
+                Name = user.Username,
+                CreatedOn = DateTime.Now,
+            };
         }
 
         public async Task<IEnumerable<Account>> GetAll()
@@ -26,11 +32,10 @@ namespace OData.Gateway.Api.Services
             var users = await _accountsHtpClient.GetUsers();
             return users.Select(x => new Account
             {
-                Id = Guid.NewGuid(),
+                Id = x.Id,
                 Name = x.Username,
                 CreatedOn = DateTime.UtcNow,
             }).ToList();
-            throw new NotImplementedException();
         }
     }
 }

@@ -8,6 +8,6 @@ namespace OData.Gateway.Api.Services
     public interface IAccountsService
     {
         Task<IEnumerable<Account>> GetAll();
-        Account Get(Guid id);
+        Task<Account> Get(int id);
     }
 }
